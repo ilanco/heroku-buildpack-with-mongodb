@@ -152,6 +152,15 @@ fi
 mkdir -p ${BUILD_DIR}/vendor/php
 tar xzf ${PHP_FILE} -C ${BUILD_DIR}/vendor/php
 
+# create extension dir for php
+if [ ! -f "${BUILD_DIR}/vendor/php/ext" ]
+then
+    mkdir ${BUILD_DIR}/vendor/php/ext
+fi
+
+# copy mongo.so
+cp $LP_DIR/ext/mongo.so ${BUILD_DIR}/vendor/php/ext/mongo.so
+
 # newrelic
 echo "-----> Installing newrelic"
 if [ -f "${NEWRELIC_FILE}" ]
