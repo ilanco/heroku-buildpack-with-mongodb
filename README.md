@@ -3,11 +3,9 @@ Nginx+PHP-FPM build pack
 
 This is a build pack bundling PHP and Nginx for Heroku apps.
 
-- Includes additional extensions: apc, memcache, memcached, mysql, pgsql, phpredis, mcrypt, newrelic, and sqlite.
+- Includes additional extensions: apc, memcache, memcached, mysql, pgsql, phpredis, mcrypt, mongodb, newrelic, and sqlite.
 - Dependency management handled by [Composer][ch].
-- [PHP Info][phpinfo].
 
-[phpinfo]: https://bp-php-t-phpinfo.herokuapp.com/
 [ch]: http://getcomposer.org/
 
 Configuration
@@ -115,12 +113,12 @@ Export your new relic license key as the `NEW_RELIC_LICENSE_KEY` env variable us
 ### Deploying
 To use this buildpack, on a new Heroku app:
 ````
-heroku create -s cedar -b git://github.com/iphoting/heroku-buildpack-php-tyler.git
+heroku create -s cedar -b https://github.com/hanifgh/heroku-buildpack-with-mongodb.git
 ````
 
 On an existing app:
 ````
-heroku config:add BUILDPACK_URL=git://github.com/iphoting/heroku-buildpack-php-tyler.git
+heroku config:add BUILDPACK_URL=https://github.com/hanifgh/heroku-buildpack-with-mongodb.git
 heroku config:add PATH="/app/vendor/bin:/app/local/bin:/app/vendor/nginx/sbin:/app/vendor/php/bin:/app/vendor/php/sbin:/usr/local/bin:/usr/bin:/bin"
 ````
 
